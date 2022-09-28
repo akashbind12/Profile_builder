@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  border: 1px solid red;
+  width: 80%;
+  margin: auto;
+  justify-content: space-around;
+}
