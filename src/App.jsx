@@ -29,32 +29,47 @@ function App() {
           <div className='option-div-child'>
             <div>Name :</div>
             <input name='name' value={data.name} type="text"  onChange={handlechange} />
-            <div>Gender :</div>
+            <div>Gender : </div>
             <select name="" id="">
-              <option value="male">male</option>
-              <option value="female">female</option>
+              <option value="male"> male </option>
+              <option value="female"> female </option>
             </select>
             <button>Random Name</button>
           </div>
 
           <div className='option-div-child'>
             <input type="checkbox" />
-            <div>Location :</div>
+            <div> Location : </div>
             <input name='location' value={data.location}  type="text"  onChange={handlechange} />
-            <button>Random Location</button>
+            <button> Random Location </button>
           </div>
 
-          <div className='option-div-child'>
+          <div style={{marginBottom : "0"}} className='option-div-child'>
             <input type="checkbox" />
-            <div>School :</div>
+            <div> School : </div>
             <input name='school' value={data.school}  type="text"  onChange={handlechange} />
             <button>Random School</button>
           </div>
           <div style={{marginTop : "0"}} className='option-div-child'>
-            <div>Major :</div>
+            <div> Major :</div>
             <input name='major' value={data.major}  type="text"  onChange={handlechange} />
-            <button>Random Major</button>
+            <button> Random Major </button>
           </div>
+
+          <div className='option-div-child'>
+            <input type="checkbox" />
+            <div> Occupation : </div>
+            <input name='occupation' value={data.occupation}  type="text"  onChange={handlechange} />
+            <button> Random Occupation </button>
+          </div>
+
+          <div className='option-div-child'>
+            <input type="checkbox" />
+            <div> Religious Backgrpund : </div>
+            <input name='religiousBackgrpund' value={data.religiousBackgrpund}  type="text"  onChange={handlechange} />
+            <button> Random Religion </button>
+          </div>
+
 
         </div>
 

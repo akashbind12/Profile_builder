@@ -26,11 +26,14 @@
 .option-div-child{
   /* border: 1px solid red; */
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
   background-color: lightgray;
-  padding: 10px;
+  padding: 15px 0 15px 0;
   margin-top: 15px;
+}
+.option-div-child>*{
+  margin-left: 10px;
 }
 
 
