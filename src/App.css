@@ -1,11 +1,44 @@
 .App {
   text-align: center;
+  background-color: #f3fff8;
 }
 
 .container{
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 80%;
   margin: auto;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.heading{
+  /* border: 1px solid gray; */
+  background-color: lightgray;
+  padding: 15px;
+  margin: 0 auto 20px auto;
+}
+.option-div{
+  /* border: 1px solid gray; */
+  width: 60%;
+  padding: 10px;
+  /* background-color: lightgray; */
+}
+
+.option-div-child{
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: lightgray;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+
+
+
+.result-div{
+  /* border: 1px solid gray; */
+  width: 30%;
+  padding: 10px;
+  /* background-color: lightgray; */
 }
