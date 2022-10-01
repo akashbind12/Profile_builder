@@ -1,16 +1,24 @@
 import { useState } from 'react'
 import './App.css'
 
+
 function App() {
   const [data, setData] = useState({
-    "name": "",
-    "location": "",
-    "school": "",
-    "major": "",
-    "occupation": "",
-    "religiousBackgrpund": "",
-    "reasonForMeeting" : "",
+    "name": "Charlie",
+    "location": "Alberta, Canada",
+    "school": "the University of Utah",
+    "major": "Information Technology",
+    "occupation": "ournalist for a local newspaper",
+    "religiousBackgrpund": "atheist, and has no experience with spiritual things",
+    "reasonForMeeting" : "is trying to find [PossessivePronoun] purpose in life outside of track and field and school",
   })
+
+  const [gender, setGender] = useState("He")
+  
+  const handleGender = (e) => {
+    console.log("gender:", e.target.value)
+    e.target.value == "male" ? setGender("He") : setGender("She")
+  }
 
   const handlechange = (e) => {
     setData({
@@ -30,7 +38,7 @@ function App() {
             <div>Name :</div>
             <input name='name' value={data.name} type="text"  onChange={handlechange} />
             <div>Gender : </div>
-            <select name="" id="">
+            <select name="" id="" onChange={handleGender} >
               <option value="male"> male </option>
               <option value="female"> female </option>
             </select>
@@ -75,9 +83,9 @@ function App() {
           <div style={{display : "block", textAlign : "left"}} className='option-div-child'>
             <div style={{display : "flex"}}>
             <input type="checkbox" />
-            <div> Reason for meeting with missionaries  : </div>
+            <div> Reason for meeting with missionaries: </div>
             </div>
-            <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='reasonForMeetin' value={data.reasonForMeeting}  type="text"  onChange={handlechange} />
+            <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='reasonForMeeting' value={data.reasonForMeeting}  type="text"  onChange={handlechange} />
             <button> Restoration </button>
             <button> Plan of Salvation </button>
             <button> Gospel of Christ </button>
@@ -91,10 +99,11 @@ function App() {
         {/* ------- result div-----------------------*/}
         <div className='result-div'>
         <h1 className='heading'>Result</h1>
-          <div className='option-div-child'>{data.name} is from {data.location}  and moved to the Utah Valley for school.
-            She is studying to be a speech pathologist at the University of Utah. She was raised without any religion in the home.
-            For most of her life, she has never had any interest in spiritual things.
-            She has recently lost a loved one, and is looking for ways to find peace during this difficult time.</div>
+          <div className='option-div-child'>{data.name} is from {data.location} .
+            {gender} is studying {data.major} at {data.school}.
+            {gender} currently works as a {data.occupation}.
+            {gender} was raised {data.religiousBackgrpund}.
+            {gender} {data.reasonForMeeting}</div>
         </div>
        </div>
     </div>
