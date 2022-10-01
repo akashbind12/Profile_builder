@@ -86,14 +86,14 @@ function App() {
           </div>
 
           <div className='option-div-child'>
-            <input type="checkbox" onChange={(e)=> handleCheck(e,setLocation2)} />
+            <input type="checkbox" defaultChecked={true} onChange={(e)=> handleCheck(e,setLocation2)} />
             <div> Location : </div>
             <input name='location' value={data.location}  type="text"  onChange={handlechange} />
             <button onClick={() => handleRandomdata("location",RandomData.Location)} > Random Location </button>
           </div>
 
           <div style={{marginBottom : "0"}} className='option-div-child'>
-            <input type="checkbox" onChange={(e)=> handleCheck(e,setSchool2)} />
+            <input type="checkbox" defaultChecked={true} onChange={(e)=> handleCheck(e,setSchool2)} />
             <div> School : </div>
             <input name='school' value={data.school}  type="text"  onChange={handlechange} />
             <button onClick={() => handleRandomdata("school",RandomData.School)} >Random School</button>
@@ -105,7 +105,7 @@ function App() {
           </div>
 
           <div className='option-div-child'>
-            <input type="checkbox" onChange={(e)=> handleCheck(e,setOccupation2)} />
+            <input type="checkbox" defaultChecked={true} onChange={(e)=> handleCheck(e,setOccupation2)} />
             <div> Occupation : </div>
             <input name='occupation' value={data.occupation}  type="text"  onChange={handlechange} />
             <button onClick={() => handleRandomdata("occupation",RandomData.Occupation)}  > Random Occupation </button>
@@ -113,7 +113,7 @@ function App() {
 
           <div style={{display : "block", textAlign : "left"}} className='option-div-child'>
             <div style={{display : "flex"}}>
-            <input type="checkbox" onChange={(e)=> handleCheck(e,setReligiousBackgrpund2)} />
+            <input type="checkbox" defaultChecked={true} onChange={(e)=> handleCheck(e,setReligiousBackgrpund2)} />
             <div> Religious Backgrpund : </div>
             </div>
             <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='religiousBackgrpund' value={data.religiousBackgrpund}  type="text"  onChange={handlechange} />
@@ -122,7 +122,7 @@ function App() {
 
           <div style={{display : "block", textAlign : "left"}} className='option-div-child'>
             <div style={{display : "flex"}}>
-            <input type="checkbox" onChange={(e)=> handleCheck(e,setReasonForMeeting2)}  />
+            <input type="checkbox" defaultChecked={true} onChange={(e)=> handleCheck(e,setReasonForMeeting2)}  />
             <div> Reason for meeting with missionaries: </div>
             </div>
             <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='reasonForMeeting' value={data.reasonForMeeting}  type="text"  onChange={handlechange} />
