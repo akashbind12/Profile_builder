@@ -77,7 +77,7 @@ function App() {
             <input type="checkbox" />
             <div> Reason for meeting with missionaries  : </div>
             </div>
-            <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='religiousBackgrpund' value={data.religiousBackgrpund}  type="text"  onChange={handlechange} />
+            <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='reasonForMeetin' value={data.reasonForMeeting}  type="text"  onChange={handlechange} />
             <button> Restoration </button>
             <button> Plan of Salvation </button>
             <button> Gospel of Christ </button>
