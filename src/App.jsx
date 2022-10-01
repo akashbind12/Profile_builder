@@ -63,13 +63,28 @@ function App() {
             <button> Random Occupation </button>
           </div>
 
-          <div className='option-div-child'>
+          <div style={{display : "block", textAlign : "left"}} className='option-div-child'>
+            <div style={{display : "flex"}}>
             <input type="checkbox" />
             <div> Religious Backgrpund : </div>
-            <input name='religiousBackgrpund' value={data.religiousBackgrpund}  type="text"  onChange={handlechange} />
+            </div>
+            <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='religiousBackgrpund' value={data.religiousBackgrpund}  type="text"  onChange={handlechange} />
             <button> Random Religion </button>
           </div>
 
+          <div style={{display : "block", textAlign : "left"}} className='option-div-child'>
+            <div style={{display : "flex"}}>
+            <input type="checkbox" />
+            <div> Reason for meeting with missionaries  : </div>
+            </div>
+            <textarea style={{width : "95%", height : "60px" , margin : "10px"}} name='religiousBackgrpund' value={data.religiousBackgrpund}  type="text"  onChange={handlechange} />
+            <button> Restoration </button>
+            <button> Plan of Salvation </button>
+            <button> Gospel of Christ </button>
+            <button> Law of Chastity </button>
+            <button> Word of Wisdom </button>
+            <button> Any Lesson </button>
+          </div>
 
         </div>
 
