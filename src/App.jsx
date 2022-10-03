@@ -136,15 +136,29 @@ function App() {
 
         </div>
 
-        {/* ------- result div-----------------------*/}
+        {/* --------------------------- result div---------------------------------------------*/}
         <div className='result-div'>
         <h1 className='heading'>Result</h1>
           <div className='option-div-child'>{location2 ? `${data.name} is from ${data.location}.` : `You are teaching ${data.name}. `}
             {gender} is studying {data.major}  {school2 ? `at ${data.school}.` : null} 
             {occupation2 ? `${gender} currently works as a ${data.occupation}.` : null}
             {religiousBackgrpund2 ? `${gender} was raised ${data.religiousBackgrpund}.` : null}
-            {reasonForMeeting2 ? `${gender} ${data.reasonForMeeting}.` : null}</div>
+            {reasonForMeeting2 ? `${gender} ${data.reasonForMeeting}.` : null}
+          </div>
+
+        <h1 style={{marginTop : "20px"}} className='heading'>Translator</h1>  
+          <div style={{paddingLeft : "10px"}} className='option-div-child'> Select the language
+            <select name="" id="">
+              <option value="hindi">Hindi</option>
+              <option value="Marthi">Marthi</option>
+              <option value="spanish">Spanish</option>
+            </select>
+          </div>
+          <div className='option-div-child'>
+            till now functinality not added for translator
+          </div>
         </div>
+
        </div>
     </div>
   )
