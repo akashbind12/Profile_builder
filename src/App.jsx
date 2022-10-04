@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
+import Translate from './Components/translator'
 
 const RandomData = {
   "Name": ["Amanda", "Hannah", "Rachel", "Josh", "Maggie", "Taylor"],
@@ -37,6 +39,9 @@ function App() {
   const [occupation2, setOccupation2] = useState(true)
   const [religiousBackgrpund2, setReligiousBackgrpund2] = useState(true)
   const [reasonForMeeting2, setReasonForMeeting2] = useState(true)
+  const [text, setText] = useState("")
+  console.log("text:", text)
+  
 
   const handleGender = (e) => {
     console.log("gender:", e.target.value)
@@ -66,6 +71,7 @@ function App() {
   const handleCheck = (e,setfun) => {
     e.target.checked ? setfun(true) : setfun(false)
   }
+
 
   return (
     <div className="App">
@@ -139,15 +145,15 @@ function App() {
         {/* --------------------------- result div---------------------------------------------*/}
         <div className='result-div'>
         <h1 className='heading'>Result</h1>
-          <div className='option-div-child'>{location2 ? `${data.name} is from ${data.location}.` : `You are teaching ${data.name}. `}
+          <div  className='option-div-child'>{location2 ? `${data.name} is from ${data.location}.` : `You are teaching ${data.name}. `}
             {gender} is studying {data.major}  {school2 ? `at ${data.school}.` : null} 
             {occupation2 ? `${gender} currently works as a ${data.occupation}.` : null}
             {religiousBackgrpund2 ? `${gender} was raised ${data.religiousBackgrpund}.` : null}
             {reasonForMeeting2 ? `${gender} ${data.reasonForMeeting}.` : null}
           </div>
 
-        <h1 style={{marginTop : "20px"}} className='heading'>Translator</h1>  
-          <div style={{paddingLeft : "10px"}} className='option-div-child'> Select the language
+        {/* <h1 style={{marginTop : "20px"}} className='heading'>Translator</h1>   */}
+          {/* <div style={{paddingLeft : "10px"}} className='option-div-child'> Select the language
             <select name="" id="">
               <option value="hindi">Hindi</option>
               <option value="Marthi">Marthi</option>
@@ -156,8 +162,19 @@ function App() {
           </div>
           <div className='option-div-child'>
             till now functinality not added for translator
-          </div>
+          </div> */}
+          <Translate
+            data={data}
+            gender={gender}
+            location2={location2}
+            school2={school2}
+            occupation2={occupation2}
+            religiousBackgrpund2={religiousBackgrpund2}
+            reasonForMeeting2={reasonForMeeting2}
+          ></Translate>
+          <div>{ text}</div>
         </div>
+
 
        </div>
     </div>
