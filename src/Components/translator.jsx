@@ -1,25 +1,37 @@
 import "./translator.css"
 import React, { useState, useEffect } from 'react';
-import {
-    Form,
-    TextArea,
-    Button,
-    Icon
-} from 'semantic-ui-react';
 import axios from 'axios';
 
-export default function Translate() {
-    const [inputText, setInputText] = useState('');
+export default function Translate({text}) {
+
+    
+
+    const [inputText, setInputText] = useState(text);
     const [detectLanguageKey, setdetectedLanguageKey] = useState('');
-    const [selectedLanguageKey, setLanguageKey] = useState('')
+    const [selectedLanguageKey, setLanguageKey] = useState('en')
     const [languagesList, setLanguagesList] = useState([])
     const [resultText, setResultText] = useState('');
+
+    useEffect(() => {
+        setInputText(text)
+    }, [text])
+    
     const getLanguageSource = () => {
         axios.post(`https://libretranslate.de/detect`, {
             q: inputText
         })
             .then((response) => {
                 setdetectedLanguageKey(response.data[0].language)
+                console.log("lan", response.data[0].language)
+                let data = {
+                    q : inputText,
+                    source: detectLanguageKey ? detectLanguageKey : response.data[0].language,
+                    target: selectedLanguageKey
+                }
+                axios.post(`https://libretranslate.de/translate`, data)
+                .then((response) => {
+                    setResultText(response.data.translatedText)
+                })
             })
     }
     useEffect(() => {
@@ -37,32 +49,33 @@ export default function Translate() {
     const translateText = () => {
         getLanguageSource();
 
-        let data = {
-            q : inputText,
-            source: detectLanguageKey,
-            target: selectedLanguageKey
-        }
-        axios.post(`https://libretranslate.de/translate`, data)
-        .then((response) => {
-            setResultText(response.data.translatedText)
-        })
+        // let data = {
+        //     q : inputText,
+        //     source: detectLanguageKey,
+        //     target: selectedLanguageKey
+        // }
+        // axios.post(`https://libretranslate.de/translate`, data)
+        // .then((response) => {
+        //     setResultText(response.data.translatedText)
+        // })
     }
 
     return (
         <div>
             <div className="app-header">
-                <h2 className="header">Texty Translator</h2>
+                <h2 className="header">Translator</h2>
             </div>
 
             <div className='app-body'>
                 <div>
-                    <Form>
-                        <Form.Field
-                            control={TextArea}
+                    <div>
+                        
+                        <p>Click on the Result text to add text in input box</p>
+                        <textarea className="textarea"
                             placeholder='Type Text to Translate..'
+                            value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                         />
-
                         <select className="language-select" onChange={languageKey}>
                             <option>Please Select Language..</option>
                             {languagesList.map((language) => {
@@ -74,20 +87,14 @@ export default function Translate() {
                             })}
                         </select>
 
-                        <Form.Field
-                            control={TextArea}
+                        <textarea className="textarea"
                             placeholder='Your Result Translation..'
                             value={resultText}
                         />
-
-                        <Button
-                            color="orange"
-                            size="large"
-                            onClick={translateText}
-                        >
-                            <Icon name='translate' />
-                            Translate</Button>
-                    </Form>
+                        <div>
+                            <button className="Button" onClick={translateText}> Translate</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

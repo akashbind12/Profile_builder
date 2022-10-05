@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Translate from './Components/translator'
 
+
 const RandomData = {
   "Name": ["Amanda", "Hannah", "Rachel", "Josh", "Maggie", "Taylor"],
   "Location": ["Mumbai", "NaviMumbai", "bangluru", "hydrabad", "chennai"],
@@ -143,9 +144,9 @@ function App() {
         </div>
 
         {/* --------------------------- result div---------------------------------------------*/}
-        <div className='result-div'>
-        <h1 className='heading'>Result</h1>
-          <div  className='option-div-child'>{location2 ? `${data.name} is from ${data.location}.` : `You are teaching ${data.name}. `}
+        <div  className='result-div'>
+          <h1 onClick={(e)=>setText(e.target.innerText)}  className='heading'>Result</h1>
+          <div onClick={(e)=>setText(e.target.innerText)} className='option-div-child'>{location2 ? `${data.name} is from ${data.location}.` : `You are teaching ${data.name}. `}
             {gender} is studying {data.major}  {school2 ? `at ${data.school}.` : null} 
             {occupation2 ? `${gender} currently works as a ${data.occupation}.` : null}
             {religiousBackgrpund2 ? `${gender} was raised ${data.religiousBackgrpund}.` : null}
@@ -163,16 +164,7 @@ function App() {
           <div className='option-div-child'>
             till now functinality not added for translator
           </div> */}
-          <Translate
-            data={data}
-            gender={gender}
-            location2={location2}
-            school2={school2}
-            occupation2={occupation2}
-            religiousBackgrpund2={religiousBackgrpund2}
-            reasonForMeeting2={reasonForMeeting2}
-          ></Translate>
-          <div>{ text}</div>
+          <Translate text={text} ></Translate>
         </div>
 
 
